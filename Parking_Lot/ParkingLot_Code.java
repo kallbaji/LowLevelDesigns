@@ -1,10 +1,9 @@
+//add admin
 class Vehicle
 {
 	int regNum;
 	VehicleType vType;
-    
 
-    //define getter and setter in each class
 }
 public enum VehicleType
 {
@@ -16,7 +15,8 @@ class ParkingSpace
 	int floorId;
 	Vehicle vehicle;
 	int price;
-	boolean isEmpty;
+	boolean isEmpty; 
+	//make this class abstract
 	
 	public void parkVehicle(Vehicle v)
 	{
@@ -46,7 +46,6 @@ class Floor
 	int floorId;
     boolean isEmpty;
 	List<ParkingSpace> pSpaces;
-	
 	public void addParkingSpace(ParkingSpace p){}
 	public void removeParkingSpace(ParkingSpace p){}
 }
@@ -63,6 +62,19 @@ class ParkingLot
 {
 	List<Floor> floorList; //initialized in constructor
 	ParkingSpaceFactory pSpaceFact;
+	//parking strategy object
+	//add gate manager
+	//make it singleton class- pubic class, private constructor, initialize inside class 
+	//public static ParkingLot INSTANCE= new ParkingLot()
+	//private ParkingLot()
+	// {
+	// 	floorList= new ArrayList<> ();
+
+	// }
+	//every other class is public class & public constructor
+	//checking for free space before getting parkingspot	 canPark()
+	//add gate, remove gate
+	//canpark(), park(), vacate() by calling same functions in floor
 	
 	
 	public void addFloor(Floor f, List<ParkingSpace> p){}
@@ -71,6 +83,7 @@ class ParkingLot
 	{
 		//Parking space found on the basis of type of vehicle using ParkingSpace Factory class
 		//Parking space is found close to entry gate
+		//add parking strategy
 	}
 }
 class GateManager
@@ -88,6 +101,8 @@ class EntryGate
 {
 	int gateid;
 	ParkingLot pLot;
+	//check for free space before finding space
+	//do everything inside getticket()- checking space and all
 	
     public Vehicle getVehicle(Vehicle v){}
 	public ParkingSpace findSpace(){
@@ -104,6 +119,9 @@ class Ticket
     Time exitTime;
 	Vehicle v;
 	ParkingSpace pSpace;
+	//isactive
+	//charges - function for this
+
 
     public void getExitTime(Time time){}
 	
@@ -116,7 +134,8 @@ class PaymentInfo
 	Ticket ticket;
 	PaymentType pType;
 	PaymentStrategy pStrategy;
-	
+
+
 }
 public enum PaymentType
 {
